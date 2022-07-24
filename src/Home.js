@@ -1,14 +1,20 @@
 import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 import { useState } from 'react';
-
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
+import TableCell, {tableCellClasses} from '@mui/material/TableCell';
 
 const theme = createTheme();
 
@@ -29,31 +35,37 @@ export default function Home() {
     orcamento = null
   }
 
+
   function ProductList(props){
     const list = props.list;
     const listItems = list.map((product) => 
-      <tr>
-        <td >{product[0]}</td>
-        <td >{product[1]}</td>
-        <td >{product[2]}</td>
-        <td >
-          <div style={{backgroundColor:product[3]}}></div>
-        </td>
-      </tr>
+
+      <TableRow key={product[0]} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+        <TableCell component="th" scope="row">{product[0]}</TableCell>
+        <TableCell align="right">{product[1]}</TableCell>
+        <TableCell align="right">{product[2]}</TableCell>
+
+      </TableRow>
+
     );
     return(
-      <table>
-        <thead>
-          <tr>
-            <th >Nome</th>
-            <th >Preço (R$)</th>
-            <th >Preferência</th>
-          </tr>
-        </thead>
-        <tbody>
-          {listItems}
-        </tbody>
-      </table>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+          
+          <TableHead>
+            <TableRow>
+              <TableCell>Nome</TableCell>
+              <TableCell align="right">Preço</TableCell>
+              <TableCell align="right">Preferência</TableCell>
+            </TableRow>
+          </TableHead>
+
+          <TableBody>
+            {listItems}
+          </TableBody>
+
+        </Table>
+      </TableContainer>
     );
   }
 
