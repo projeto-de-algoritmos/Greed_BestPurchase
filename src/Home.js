@@ -35,17 +35,36 @@ export default function Home() {
     orcamento = null
   }
 
+  const StyledTableCell = styled(TableCell)(({theme}) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.primary.dark,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+    }
+  }));
+  
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    '&:last-child td, &:last-child th': {
+      border: 0,
+    },
+  }));
 
   function ProductList(props){
     const list = props.list;
     const listItems = list.map((product) => 
 
-      <TableRow key={product[0]} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-        <TableCell component="th" scope="row">{product[0]}</TableCell>
-        <TableCell align="right">{product[1]}</TableCell>
-        <TableCell align="right">{product[2]}</TableCell>
+      <StyledTableRow key={product[0]} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+        <StyledTableCell component="th" scope="row">{product[0]}</StyledTableCell>
+        <StyledTableCell align="right">{product[1]}</StyledTableCell>
+        <StyledTableCell align="right">{product[2]}</StyledTableCell>
 
-      </TableRow>
+      </StyledTableRow>
 
     );
     return(
@@ -54,9 +73,9 @@ export default function Home() {
           
           <TableHead>
             <TableRow>
-              <TableCell>Nome</TableCell>
-              <TableCell align="right">Preço</TableCell>
-              <TableCell align="right">Preferência</TableCell>
+              <StyledTableCell>Nome</StyledTableCell>
+              <StyledTableCell align="right">Preço</StyledTableCell>
+              <StyledTableCell align="right">Preferência</StyledTableCell>
             </TableRow>
           </TableHead>
 
