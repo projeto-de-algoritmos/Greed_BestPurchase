@@ -29,10 +29,8 @@ export default function Home() {
   const handleAdd = async() => {
     await setProduct( previus => [...previus, [name, Number(preco), Number(preferencia)]] )
     setPreferencia('')
-    name = null
-    preco = null
-    preferencia = null
-    orcamento = null
+    setName('')
+    setPreco('')
   }
 
   const StyledTableCell = styled(TableCell)(({theme}) => ({
