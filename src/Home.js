@@ -48,8 +48,7 @@ export default function Home() {
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.action.hover,
-    },
-    // hide last border
+    },    // hide last border
     '&:last-child td, &:last-child th': {
       border: 0,
     },
@@ -60,22 +59,22 @@ export default function Home() {
     const listItems = list.map((product) => 
 
       <StyledTableRow key={product[0]} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-        <StyledTableCell component="th" scope="row">{product[0]}</StyledTableCell>
-        <StyledTableCell align="right">{product[1]}</StyledTableCell>
-        <StyledTableCell align="right">{product[2]}</StyledTableCell>
+        <StyledTableCell align="center" component="th" scope="row">{product[0]}</StyledTableCell>
+        <StyledTableCell align="center">{product[1]}</StyledTableCell>
+        <StyledTableCell align="center">{product[2]}</StyledTableCell>
 
       </StyledTableRow>
 
     );
     return(
-      <TableContainer component={Paper}>
+      <TableContainer sx={{mt: 3, ml:3}} component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           
           <TableHead>
             <TableRow>
-              <StyledTableCell>Nome</StyledTableCell>
-              <StyledTableCell align="right">Preço</StyledTableCell>
-              <StyledTableCell align="right">Preferência</StyledTableCell>
+              <StyledTableCell align="center">Nome</StyledTableCell>
+              <StyledTableCell align="center">Preço</StyledTableCell>
+              <StyledTableCell align="center">Preferência</StyledTableCell>
             </TableRow>
           </TableHead>
 
@@ -152,7 +151,8 @@ export default function Home() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url()',
+            pr:10,
+            backgroundImage: 'url(https://cdn.pixabay.com/photo/2016/09/16/19/19/online-store-1674907_960_720.png)',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundSize: 'cover',
@@ -163,7 +163,7 @@ export default function Home() {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
-              my: 8,
+              my: 4,
               mx: 4,
               display: 'flex',
               flexDirection: 'column',
@@ -245,6 +245,12 @@ export default function Home() {
               >
                 Limpar tudo
               </Button>
+                <div className="show-bar">
+                  
+                  <ShowBar list={buyList} orcamento={orcamento}/>
+                
+                </div>
+              
             </Box>
           </Box>
         </Grid>
