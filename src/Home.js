@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {styled} from '@mui/material/styles';
 import TableCell, {tableCellClasses} from '@mui/material/TableCell';
+import Background from './shopping-cart.png';
 
 const theme = createTheme();
 
@@ -109,20 +110,20 @@ export default function Home() {
       }
     }
   }
- 
 
   function ShowBar(props) {
     let products = props.list;
     let total = props.orcamento;
     let parts = products.map((product) => {
       var barStyle = {
-        height: 100 + '%',
-        width: Math.floor(product[1] / total * 100) + '%',
-        backgroundColor: product[3]
+        width: 100 + '%',
+        marginRight: 50 + '%',
+        marginLeft: 50 + '%',
+        alignItems: 'center'
       }
       return (
         <div className="itemBar" style={barStyle}>
-          <spam className="whichItem">{product[0]}</spam>
+          {product[0]}
         </div>
       );
     });
@@ -243,12 +244,40 @@ export default function Home() {
               >
                 Limpar tudo
               </Button>
-                <div className="show-bar">
-                  
-                  <ShowBar list={buyList} orcamento={orcamento}/>
+              <Box
+                sx={{
+                  marginTop: 32 + 'px',
+                  marginBottom: 0,
+                  mx: 4,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+              >
+                <Typography component="h1" variant="h5">
+                  Carrinho priorizado
+                </Typography>
+
                 
+              </Box>
+
+              <Box
+                sx={{
+                  backgroundImage: "url(" + "https://i.ibb.co/NZ0j292/shopping-cart.png" + ")",
+                  backgroundPosition: 'center top',
+                  width: 545 + 'px',
+                  height: 350 + 'px',
+                  backgroundSize: 545 + 'px' + ' ' + 470 + 'px',
+                  backgroundRepeat: 'no-repeat',
+                  marginTop: -40 + 'px'
+                }}
+              >
+                <div className="show-bar" style={{paddingTop: 23 + '%'}}>          
+                  <ShowBar list={buyList} orcamento={orcamento}/>        
                 </div>
-              
+              </Box>
+          
+                
             </Box>
           </Box>
         </Grid>
