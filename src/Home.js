@@ -71,7 +71,7 @@ export default function Home() {
           
           <TableHead>
             <TableRow>
-              <StyledTableCell align="center">Nome</StyledTableCell>
+              <StyledTableCell align="center">Nome do produto</StyledTableCell>
               <StyledTableCell align="center">Preço</StyledTableCell>
               <StyledTableCell align="center">Preferência</StyledTableCell>
             </TableRow>
@@ -189,7 +189,7 @@ export default function Home() {
                 margin="Nome"
                 fullWidth
                 id="Nome"
-                label="Nome"
+                label="Nome do produto"
                 name="Nome"
                 autoComplete="Nome"
                 sx={{mb: 3}}
@@ -272,7 +272,7 @@ export default function Home() {
                   marginTop: -40 + 'px'
                 }}
               >
-                <div className="show-bar" style={{paddingTop: 23 + '%'}}>          
+                <div className="show-bar" style={{paddingTop: 24 + '%'}}>          
                   <ShowBar list={buyList} orcamento={orcamento}/>        
                 </div>
               </Box>
