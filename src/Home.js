@@ -223,7 +223,7 @@ export default function Home() {
                 type="submit"
                 //fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2, mr: 4 }}
+                sx={{ mt: 3, mb: 2, mr: 4, ml: 5 + '%' }}
                 onClick={ handleAdd }
               >
                 Adicionar
